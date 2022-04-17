@@ -4,9 +4,10 @@ from flask import Flask, request
 import ahuzot_helper as ah
 from parkings_db_helper import ParkingsDbHelper
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route("/api/get_all_lots")
 def get_all_lots():
