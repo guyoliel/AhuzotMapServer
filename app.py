@@ -2,11 +2,13 @@ import os
 from flask import Flask, Blueprint
 from dotenv import load_dotenv
 from flask_cors import CORS
-from parking_lots_controller import parking_lots_controller
+from controllers.parking_lots_controller import parking_lots_controller
+from controllers.places_controller import places_controller
 
 app = Flask(__name__)
 api = Blueprint('api','api',url_prefix='/api')
 api.register_blueprint(parking_lots_controller)
+api.register_blueprint(places_controller)
 app.register_blueprint(api)
 
 CORS(app)
